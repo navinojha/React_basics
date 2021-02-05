@@ -2,19 +2,38 @@
 
 //console.log("App is running!");
 
+var user = {
+  name: "Navin",
+  age: "23",
+  location: "Bangalore"
+};
+
+function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      "p",
+      null,
+      "Location : ",
+      location
+    );
+  }
+}
+
 var template = React.createElement(
   "div",
   null,
   React.createElement(
     "h1",
     null,
-    "THis is the h1 tag"
+    user.name ? user.name : "Anonymous"
   ),
-  React.createElement(
+  user.age && user.age >= 18 && React.createElement(
     "p",
     null,
-    "Does this change!"
-  )
+    "Age: ",
+    user.age
+  ),
+  getLocation(user.location)
 );
 
 var appRoot = document.getElementById("app");
