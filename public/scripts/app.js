@@ -52,23 +52,20 @@ var renderFormOptions = function renderFormOptions() {
       "Remove all"
     ),
     React.createElement(
+      "p",
+      null,
+      app.options.length
+    ),
+    React.createElement(
       "ol",
       null,
-      React.createElement(
-        "li",
-        null,
-        "Item One"
-      ),
-      React.createElement(
-        "li",
-        null,
-        "Item Two"
-      ),
-      React.createElement(
-        "p",
-        null,
-        app.options.length
-      )
+      app.options.map(function (str) {
+        return React.createElement(
+          "li",
+          { key: str },
+          str
+        );
+      })
     ),
     React.createElement(
       "form",

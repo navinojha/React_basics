@@ -32,10 +32,11 @@ const renderFormOptions = () => {
       {app.subtitle && <p>{app.subtitle}</p>}
       <p>{app.options.length > 0 ? "Here are your options" : "No Options"}</p>
       <button onClick={onRemoveAll}>Remove all</button>
+      <p>{app.options.length}</p>
       <ol>
-        <li>Item One</li>
-        <li>Item Two</li>
-        <p>{app.options.length}</p>
+        {app.options.map((str) => (
+          <li key={str}>{str}</li>
+        ))}
       </ol>
 
       <form onSubmit={onFormSubmit}>
