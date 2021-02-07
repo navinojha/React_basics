@@ -25,6 +25,12 @@ var onRemoveAll = function onRemoveAll() {
   renderFormOptions();
 };
 
+var onMakeDecision = function onMakeDecision() {
+  var randNumber = Math.trunc(Math.random() * app.options.length);
+  var option = app.options[randNumber];
+  alert(option);
+};
+
 var appRoot = document.getElementById("app");
 
 var renderFormOptions = function renderFormOptions() {
@@ -45,6 +51,11 @@ var renderFormOptions = function renderFormOptions() {
       "p",
       null,
       app.options.length > 0 ? "Here are your options" : "No Options"
+    ),
+    React.createElement(
+      "button",
+      { disabled: app.options.length == 0, onClick: onMakeDecision },
+      "What should I do ?"
     ),
     React.createElement(
       "button",
